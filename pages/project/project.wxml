@@ -50,25 +50,12 @@
       </picker>
     </view>
   </view>
-<view class='projectlist'>
-  <view class='project project1' >
+<view class='projectlist' >
+  <view class='project project1'  wx:for="{{arrayProject}}"  wx:for-item="itemProjec" wx:key="id">
     <view class='left'>
-      <view class='projectText'>项目题目项目题目项也让他跟天河区为广大</view>
-      <text class='projectLabel'>用户名</text>
-    </view>
-    <image src='/images/timg.jpg' mode='aspectFit'></image>
-  </view>
-  <view class='project'>
-    <view class='left'>
-      <view class='projectText'>项目题目项目题目项也让他跟天河区为广大</view>
-      <text class='projectLabel'>用户名</text>
-    </view>
-    <image src='/images/timg.jpg' mode='aspectFit'></image>
-  </view>
-  <view class='project'>
-    <view class='left'>
-      <view class='projectText'>项目题目项目题目项也让他跟天河区为广大</view>
-      <text class='projectLabel'>用户名</text>
+      <view class='projectText'>{{itemProjec.title}}</view>
+      <view class='projectIntroduction'>{{itemProjec.introduction}}</view>
+      <text class='projectLabel'>{{itemProjec.Contacts}}</text>
     </view>
     <image src='/images/timg.jpg' mode='aspectFit'></image>
   </view>

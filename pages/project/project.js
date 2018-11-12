@@ -88,7 +88,74 @@ Page({
     indexSort: 0,
 
     region: ['广东省', '广州市'],
-    customItem: '全部'
+    customItem: '全部',
+  arrayProject:[
+    
+      {
+        id: 1,
+        title: '正在进行的项目aaa',
+        address:'河南省新乡市红旗区',
+        Category: '全部类别',
+        Schedule:'正在进行时',
+        introduction:'此项目是一个微信小程序项目，主要功能是展示关于钢构方面的信息',
+        Scale: '规模不大不小',
+        Contacts: '张先生',
+        conNumber: '15137311953'
+      },
+      {
+        id: 2,
+        title: '正在进行的项目bb',
+        address: '河南省新乡市红旗区',
+        Category: '全部类别',
+        Schedule: '正在进行时',
+        introduction: '此项目是一个微信小程序项目，主要功能是展示关于钢构方面的信息',
+        Scale: '规模不大不小',
+        Contacts: '张先生',
+        conNumber: '15137311953'
+      }, {
+        id: 3,
+        title: '正在进行的项目ccc',
+        address: '河南省新乡市红旗区',
+        Category: '全部类别',
+        Schedule: '正在进行时',
+        introduction: '此项目是一个微信小程序项目，主要功能是展示关于钢构方面的信息',
+        Scale: '规模不大不小',
+        Contacts: '张先生',
+        conNumber: '15137311953'
+    }, {
+      id: 4,
+      title: '正在进行的项目444',
+      address: '河南省新乡市红旗区',
+      Category: '全部类别',
+      Schedule: '正在进行时',
+      introduction: '此项目是一个微信小程序项目，主要功能是展示关于钢构方面的信息',
+      Scale: '规模不大不小',
+      Contacts: '张先生',
+      conNumber: '15137311953'
+    },
+    {
+      id: 5,
+      title: '正在进行的项目55555',
+      address: '河南省新乡市红旗区',
+      Category: '全部类别',
+      Schedule: '正在进行时',
+      introduction: '此项目是一个微信小程序项目，主要功能是展示关于钢构方面的信息',
+      Scale: '规模不大不小',
+      Contacts: '张先生',
+      conNumber: '15137311953'
+    }, {
+      id: 6,
+      title: '正在进行的项目66666',
+      address: '河南省新乡市红旗区',
+      Category: '全部类别',
+      Schedule: '正在进行时',
+      introduction: '此项目是一个微信小程序项目，主要功能是展示关于钢构方面的信息',
+      Scale: '规模不大不小',
+      Contacts: '张先生',
+      conNumber: '15137311953'
+    }
+    
+  ]
   },
   bindPickerChangeCategory: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
