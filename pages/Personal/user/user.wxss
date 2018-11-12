@@ -1,0 +1,77 @@
+/* pages/Personal/user/user.wxss */
+.user{
+  background-color: #EDEBEB;
+}
+.login_back{
+  width: 100%;
+  height: 100px;
+  background-color: #FC9292;
+}
+.user_portrait
+{
+  width:54px;
+  height: 54px;
+}
+.btn_login{
+  color: white;
+}
+.user_info
+{
+  text-align: center;
+  width: 100%;
+  padding: 20px 0px;
+}
+.integral{
+  font: 30px;
+}
+.value{
+  width: 100%;
+  height: 60px;
+  background-color: white;
+}
+.user_item
+{
+  width:25%;
+  display: inline-block;
+  margin-top: 10px;
+  text-align: center;
+}
+.user_item>view{
+  font-size: 20px;
+}
+.user_item>text{
+  color: #B7B6B6;
+}
+.mine{
+  width: 100%;
+  height: 150px;
+  margin-top: 5px;
+  background: white;
+}
+.mine_text,.other_text{
+  margin-left: 5px;
+  height: 20px;
+  padding-top: 5px;
+  border-bottom: 1px solid #DADADA;
+}
+.Modular{
+  margin-top: 10px;
+  width: 100%;
+  height: 100px;
+  text-align: center;
+}
+.Modular>view{
+  display: inline-block;
+  width: 33%;
+  height: 50PX;
+}
+.Modular image{
+  width: 100px;
+  height: 20px;
+}
+.other{
+  width: 100%;
+  height: 80px;
+  margin-top: 5px;
+  background: white;
+}

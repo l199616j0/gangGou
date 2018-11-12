@@ -1,0 +1,96 @@
+/* pages/project/project.wxss */
+.search_bar
+{
+  width:100%;
+  float: left;
+  padding: 3px 0px;
+}
+.city
+{
+  width:20%;
+  float: left;
+  text-align: center;
+  font-size: 12px;
+  line-height: 24px;
+  height: 24px;
+}
+.search
+{
+  width:60%;
+  float: left;
+  border: 1px solid #d0d0d0;
+  border-radius: 22rpx;
+  padding-left: 30px;
+  font-size: 12px;
+}
+.search input
+{
+  width:90%;
+}
+.searchcion
+{
+  float: left;
+  margin-top:6px;
+  margin-right: 5px;
+}
+.choice{
+  width: 100%;
+  padding-top: 35px;
+  padding-bottom: 5px;
+  position: absolute;
+  border-bottom: 1px solid #DADADA;
+}
+.choice>view{
+  display: inline-block;
+  margin: 2px;
+}
+.section{
+  width: 16%;
+}
+.sectionCity{
+  width: 25%;
+}
+.choice text{
+  color: #dfdfdf;
+}
+.picker{
+  text-align: center;
+}
+
+.projectlist{
+  width: 100%;
+  position: absolute;
+  margin-top: 50px;
+}
+.project{
+  margin-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #DADADA;
+}
+.project1{
+  margin-top: 20px;
+}
+.project view{
+ 
+  display: inline-block;
+}
+.left{
+   width: 60%;
+    margin-left: 20px;
+}
+.project>image{
+  width: 30%;
+  height: 65px;
+}
+.projectText{
+  line-height: 22px;
+  text-align: left;
+  width: 94%;
+  height: 60%;
+  color:#050505;
+  margin-bottom: 5px;
+}
+.projectLabel{
+  color: #b4b3b3;
+  padding-bottom: 15px;
+}

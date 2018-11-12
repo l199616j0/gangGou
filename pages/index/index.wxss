@@ -1,0 +1,102 @@
+/* pages/index/index.wxss */
+.search_bar
+{
+  width:100%;
+  float: left;
+  padding: 3px 0px;
+}
+.city
+{
+  width:20%;
+  float: left;
+  text-align: center;
+  font-size: 12px;
+  line-height: 24px;
+  height: 24px;
+}
+.search
+{
+  width:60%;
+  float: left;
+  border: 1px solid #d0d0d0;
+  border-radius: 22rpx;
+  padding-left: 30px;
+  font-size: 12px;
+}
+.search input
+{
+  width:90%;
+}
+.searchcion
+{
+  float: left;
+  margin-top:6px;
+  margin-right: 5px;
+}
+swiper-item image
+{
+  width:100%;
+}
+.fenlei
+{
+  margin-top: 45px;
+  height: 100px;
+}
+.fenlei view
+{
+  width:25%;
+  float: left;
+  text-align: center;
+  height: 70px;
+}
+.hotfenlei
+{
+  height: 140px;
+}
+.hotfenlei view
+{
+  width:25%;
+  float: left;
+  text-align: center;
+  height: 70px;
+}
+.company
+{
+  padding: 10px;
+}
+.company view
+{
+  float: left;
+}
+.company_info
+{
+  margin-left: 5px;
+}
+.company_info view
+{
+  width:100%;
+}
+.company_address
+{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 10px;
+}
+.split
+{
+  height:3px;
+  background-color: #d0d0d0;
+}
+.company_name
+{
+  font-size: 14px;
+  font-weight: bolder;
+}
+.youzhi
+{
+  width:100%;
+  text-align: center;
+  border-bottom: 1px solid #d0d0d0;
+  padding: 5px 0px;
+}

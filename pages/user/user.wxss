@@ -1,0 +1,100 @@
+/* pages/user/user.wxss */
+.user_touxiang
+{
+  width:64px;
+  height: 64px;
+}
+.user_info
+{
+  text-align: center;
+  width: 100%;
+  padding: 30px 0px;
+  background-color: #6699FF;
+}
+.user_nickname
+{
+  color: #ffffff;
+  font-size: 12px;
+}
+.btn_login
+{
+  color: #ffffff;
+  font-size: 12px;
+}
+.user_xinxi
+{
+  background-color: #ffffff;
+  display: flex;
+  padding: 10px 0px;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: -30px;
+  border-radius: 10px;
+}
+.user_item
+{
+  width:33%;
+  float: left;
+  text-align: center;
+}
+.user_menu
+{
+  background-color: #ffffff;
+  font-size: 14px;
+  padding: 5px 10px;
+  border-bottom:  1px solid rgb(130, 133, 138);
+  display: flex;
+}
+.user_menu view
+{
+  width:50%;
+  float: left;
+  height: 24px;
+  line-height: 24px;
+  font-size: 14px;
+}
+.user_menu view text
+{
+  float: left;
+}
+.user_menu view image
+{
+  float: left;
+  margin-top: 5px;
+}
+.user_menu>.menu_info
+{
+  float: right;
+  color: rgb(130, 133, 138);
+  text-align: right;
+  font-size: 12px;
+}
+
+.split
+{
+  height:5px;
+  background-color: #d0d0d0;
+}
+page
+{
+  background-color: #d0d0d0;
+}
+.contact
+{
+  border: none;
+  background-color: rgba(255,255,255,0);
+  font-size: 14px;
+  height: 24px;
+  line-height: 24px;
+  padding: 0px;
+  text-align: left;
+  width: auto;
+  color: #555353;
+}
+.contact::after
+{
+  border: none;
+  background-color: rgba(255,255,255,0);
+  color: #555353;
+}

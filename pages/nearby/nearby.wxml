@@ -1,0 +1,39 @@
+<!--pages/nearby/nearby.wxml-->
+<view class="search_bar">
+<view class='city'>
+<text>地市 ﹀</text>
+</view>
+<view class='search'>
+<icon class="searchcion" size='12' type='search'></icon>
+<input placeholder='搜索附近信息'></input>
+</view>
+</view>
+<swiper indicator-dots="true" autoplay="true" interval='5000' indicator-active-color="red" circular="true">
+<swiper-item>
+<image class='top-img' src='/images/b1.jpg'></image>
+</swiper-item>    
+<swiper-item>      
+<image class='top-img' src='/images/b2.jpg'></image>    
+</swiper-item>    
+<swiper-item>      
+<image class='top-img' src='/images/b3.jpg'></image>    
+</swiper-item>  
+</swiper>
+<view class='tab'>
+  <view class='tab_item active' bindtap="changeTab" id='1'>
+  <image src='/images/gongren.png' style='width:15px;height:15px;' mode='aspectFit'></image>
+    <text>招工找活</text>
+  </view>
+  <view class='tab_item' bindtap="changeTab" id='2'>
+  <image src='/images/huishou.png' style='width:15px;height:15px;' mode='aspectFit'></image>
+    <text>二手市场</text>
+  </view>
+  <view class='tab_item' bindtap="changeTab" id='3'>
+  <image src='/images/gongying.png' style='width:15px;height:15px;' mode='aspectFit'></image>
+    <text>产品供应</text>
+  </view>
+  <view class='tab_item' bindtap="changeTab" id='4'>
+  <image src='/images/caigou.png' style='width:15px;height:15px;' mode='aspectFit'></image>
+    <text>实单求购</text>
+  </view>
+</view>

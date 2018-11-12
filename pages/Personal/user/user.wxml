@@ -1,0 +1,80 @@
+<!--pages/Personal/user/user.wxml-->
+<view class='user'>
+  <view class='login_back'>
+    <view class='user_info' bindtap='dologin'>
+      <image class='user_portrait'  src='/images/empty_user.png'></image>
+      <view class='btn_login'>点击登录</view>
+    </view>
+  </view>
+  <view class='value'>
+    <view class='user_item'>
+      <view class='integral'>88</view>
+      <text>积分</text>
+    </view>
+    <view class='user_item'>  
+      <view class='steelCoins'>88</view>
+      <text>钢币</text>
+    </view>
+    <view class='user_item'>
+      <view class='money'>88 <text style='font-size:12px'>￥</text></view>
+      <text>钱包</text>
+    </view>
+     <view class='user_item'>  
+      <view class='release'>88</view>
+      <text>发布</text>
+    </view>
+  </view>
+  <view class='mine'>
+    <view class='mine_text'>
+      <text style='color:blue'>|</text>
+      <text>我的</text>
+    </view>
+    <view class='mine_Modular Modular'>
+      <view class='aa'>
+        <image src='/images/jifen.png' mode='aspectFit'></image>
+        <text>我的资料</text>
+      </view>
+      <view class='aa'>
+        <image src='/images/jifen.png' mode='aspectFit'></image>
+        <text>我的客服</text>
+      </view>
+      <view class='aa'>
+        <image src='/images/jifen.png' mode='aspectFit'></image>
+        <text>企业信息</text>
+      </view>
+      <view class='aa'>
+        <image src='/images/jifen.png' mode='aspectFit'></image>
+        <text>推广链接</text>
+      </view>
+      <view class='aa'>
+        <image src='/images/jifen.png' mode='aspectFit'></image>
+        <text>积分商城</text>
+      </view>
+      <view class='aa'>
+        <image src='/images/jifen.png' mode='aspectFit'></image>
+        <text>我的勋章</text>
+      </view>
+    </view>
+  </view>
+    <view class='other'>
+    <view class='other_text'>
+      <text style='color:blue'>|</text>
+      <text>其他</text>
+    </view>
+    <view class='other_Modular Modular'>
+      <view class='aa'>
+        <image src='/images/jifen.png' mode='aspectFit'></image>
+        <text>授权设置</text>
+      </view>
+      <view class='aa'>
+        <image src='/images/jifen.png' mode='aspectFit'></image>
+        <text>帮助中心</text>
+      </view>
+      <view class='aa'>
+        <image src='/images/jifen.png' mode='aspectFit'></image>
+        <text>关于我们</text>
+      </view>
+    </view>
+  </view>
+</view>
+

@@ -1,0 +1,77 @@
+<!--pages/project/project.wxml-->
+<view class="search_bar">
+  <view class='city'>
+    <text>地市 ﹀</text>
+  </view>
+  <view class='search'>
+    <icon class="searchcion" size='12' color='white'  type='search'></icon>
+    <input placeholder='搜索全国信息'></input>
+  </view>
+</view>
+<view class='body'>
+  <view class='choice'>
+    <view class="sectionCity">
+      <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+        <view class="picker">
+          {{region[1]}}
+        </view>
+      </picker>
+    </view>
+    <text>|</text>
+    <view class="section">
+      <picker bindchange="bindPickerChangeCategory" value="{{indexCategory}}" range="{{arrayCategory}}">
+        <view class="picker">
+          {{arrayCategory[indexCategory]}}
+        </view>
+      </picker>
+    </view>
+    <text>|</text>
+    <view class="section">
+      <picker bindchange="bindPickerChangeSchedule" value="{{indexSchedule}}" range="{{arraySchedule}}">
+        <view class="picker">
+          {{arraySchedule[indexSchedule]}}
+        </view>
+      </picker>
+    </view>
+    <text>|</text>
+    <view class="section">
+      <picker bindchange="bindPickerChangeScale" value="{{indexScale}}" range="{{arrayScale}}">
+        <view class="picker">
+          {{arrayScale[indexScale]}}
+        </view>
+      </picker>
+    </view>
+    <text>|</text>
+    <view class="section">
+      <picker bindchange="bindPickerChangeSort" value="{{indexSort}}" range="{{arraySort}}">
+        <view class="picker">
+        {{arraySort[indexSort]}}
+        </view>
+      </picker>
+    </view>
+  </view>
+<view class='projectlist'>
+  <view class='project project1' >
+    <view class='left'>
+      <view class='projectText'>项目题目项目题目项也让他跟天河区为广大</view>
+      <text class='projectLabel'>用户名</text>
+    </view>
+    <image src='/images/timg.jpg' mode='aspectFit'></image>
+  </view>
+  <view class='project'>
+    <view class='left'>
+      <view class='projectText'>项目题目项目题目项也让他跟天河区为广大</view>
+      <text class='projectLabel'>用户名</text>
+    </view>
+    <image src='/images/timg.jpg' mode='aspectFit'></image>
+  </view>
+  <view class='project'>
+    <view class='left'>
+      <view class='projectText'>项目题目项目题目项也让他跟天河区为广大</view>
+      <text class='projectLabel'>用户名</text>
+    </view>
+    <image src='/images/timg.jpg' mode='aspectFit'></image>
+  </view>
+</view>
+</view>
+

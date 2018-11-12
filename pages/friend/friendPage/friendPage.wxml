@@ -1,0 +1,9 @@
+<!--pages/friend/friend.wxml-->
+<view class='tab'>
+  <view class='tab_item active' bindtap="changeTab" id='1'>
+    好友
+  </view>
+  <view class='tab_item' bindtap="changeTab" id='2'>
+    朋友圈
+  </view>
+</view>

@@ -1,0 +1,24 @@
+<!--pages/add/add.wxml-->
+<image class='top-img' src='/images/b3.jpg' style='width:100%;height:100px;'></image>
+<view class="youzhi">
+<text>--选择发布栏目--</text>
+</view>
+
+<view class="fenlei">
+<view>
+<image src='/images/gongren.png' style='width:100%;height:60%;' mode='aspectFit'></image>
+<text>招工找活</text>
+</view>
+<view>
+<image src='/images/huishou.png' style='width:100%;height:60%;' mode='aspectFit'></image>
+<text>二手市场</text>
+</view>
+<view>
+<image src='/images/gongying.png' style='width:100%;height:60%;' mode='aspectFit'></image>
+<text>供应</text>
+</view>
+<view>
+<image src='/images/caigou.png' style='width:100%;height:60%;' mode='aspectFit'></image>
+<text>采购</text>
+</view>
+</view>

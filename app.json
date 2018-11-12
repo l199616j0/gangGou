@@ -1,0 +1,55 @@
+{
+  "pages": [
+    "pages/indexT/indexT",
+    "pages/index/index",
+    "pages/nearby/nearby",
+    "pages/add/addPage/addPage",
+    "pages/friend/friendPage/friendPage",
+    "pages/user/user",
+    "pages/helpinfo/helpinfo",
+    "pages/Personal/user/user",
+    "pages/project/project"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fa9e3b",
+    "navigationBarTitleText": "钢构联盟",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#a9b7b7",
+    "selectedColor": "#fa9e3b",
+    "list": [
+      {
+        "pagePath": "pages/indexT/indexT",
+        "text": "首页",
+        "iconPath": "images/B64_91.png",
+        "selectedIconPath": "images/W64_91.png"
+      },
+      {
+        "pagePath": "pages/nearby/nearby",
+        "text": "附近",
+        "iconPath": "images/B64_87.png",
+        "selectedIconPath": "images/W64_87.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "发布",
+        "iconPath": "images/B64_18.png",
+        "selectedIconPath": "images/W64_18.png"
+      },
+      {
+        "pagePath": "pages/Personal/user/user",
+        "text": "朋友",
+        "iconPath": "images/B64_90.png",
+        "selectedIconPath": "images/W64_90.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "我的",
+        "iconPath": "images/B64_30.png",
+        "selectedIconPath": "images/W64_30.png"
+      }
+    ]
+  }
+}

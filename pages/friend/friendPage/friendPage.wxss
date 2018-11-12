@@ -1,0 +1,19 @@
+/* pages/friend/friend.wxss */
+.tab
+{
+  margin-top: 5px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  text-align: center;
+}
+.tab_item
+{
+  width:49%;
+  border-radius: 4rpx;
+  padding-bottom: 20rpx;
+}
+.tab .active {
+  border-bottom: 4rpx solid #6699FF;
+  color: #6699FF;
+}

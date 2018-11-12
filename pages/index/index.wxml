@@ -1,0 +1,92 @@
+<!--pages/index/index.wxml-->
+<view class="search_bar">
+<view class='city'>
+<text>地市 ﹀</text>
+</view>
+<view class='search'>
+<icon class="searchcion" size='12' type='search'></icon>
+<input placeholder='搜索全国信息'></input>
+</view>
+</view>
+<swiper indicator-dots="true" autoplay="true" interval='5000' indicator-active-color="red" circular="true">
+<swiper-item>
+<image class='top-img' src='/images/b1.jpg'></image>
+</swiper-item>    
+<swiper-item>      
+<image class='top-img' src='/images/b2.jpg'></image>    
+</swiper-item>    
+<swiper-item>      
+<image class='top-img' src='/images/b3.jpg'></image>    
+</swiper-item>  
+</swiper>
+<view class="fenlei">
+<view>
+<image src='/images/gongren.png' style='width:100%;height:60%;' mode='aspectFit'></image>
+<text>招工找活</text>
+</view>
+<view>
+<image src='/images/huishou.png' style='width:100%;height:60%;' mode='aspectFit'></image>
+<text>二手市场</text>
+</view>
+<view>
+<image src='/images/gongying.png' style='width:100%;height:60%;' mode='aspectFit'></image>
+<text>供应</text>
+</view>
+<view>
+<image src='/images/caigou.png' style='width:100%;height:60%;' mode='aspectFit'></image>
+<text>采购</text>
+</view>
+</view>
+<view class="hotfenlei">
+<view>
+<image src='/images/xiangmu.png' style='width:100%;height:30%;' mode='aspectFit'></image>
+<text>钢构项目</text>
+</view>
+<view>
+<image src='/images/sheji.png' style='width:100%;height:30%;' mode='aspectFit'></image>
+<text>钢构设计</text>
+</view>
+<view>
+<image src='/images/gongchang.png' style='width:100%;height:30%;' mode='aspectFit'></image>
+<text>钢构工厂</text>
+</view>
+<view>
+<image src='/images/zhaogong.png' style='width:100%;height:30%;' mode='aspectFit'></image>
+<text>钢构找工</text>
+</view>
+<view>
+<image src='/images/zhaohuo.png' style='width:100%;height:30%;' mode='aspectFit'></image>
+<text>钢构找活</text>
+</view>
+<view>
+<image src='/images/ershouganggou.png' style='width:100%;height:30%;' mode='aspectFit'></image>
+<text>二手钢构</text>
+</view>
+<view>
+<image src='/images/ganggoushebei.png' style='width:100%;height:30%;' mode='aspectFit'></image>
+<text>钢构设备</text>
+</view>
+<view>
+<image src='/images/ganggoupeijian.png' style='width:100%;height:30%;' mode='aspectFit'></image>
+<text>钢构配件</text>
+</view>
+</view>
+<view class='split'>
+</view>
+<view class="youzhi">
+<text>--优质商家--</text>
+</view>
+<view class='company' style="height:60px;">
+<view class="company_image" style='width:25%;'>
+<image src='/images/timg.jpg' style='width:100%;height:60px;' mode='aspectFit'></image>
+</view>
+<view class="company_info" style="width:73%">
+<view class='company_name'>郑州市顺和彩钢有限公司</view>
+<view class='company_tag'>ceshi</view>
+<view class='company_address'>
+<image src='/images/weizhi.png' style='width:10px;height:10px;' mode='aspectFit'></image>
+河南省郑州市管城区金鼎轩师傅市管城区金鼎轩师傅</view>
+</view>
+</view>
+<view class='split'>
+</view>
