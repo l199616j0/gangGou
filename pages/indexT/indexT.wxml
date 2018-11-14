@@ -17,7 +17,7 @@
       <image src='/images/gongren.png' mode='aspectFit'></image>
       <text>项目信息</text>
     </view>
-    <view>
+    <view bindtap='technicalArticle'>
       <image src='/images/gongren.png'  mode='aspectFit'></image>
       <text>技术文章</text>
     </view>

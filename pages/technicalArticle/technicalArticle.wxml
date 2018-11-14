@@ -1,4 +1,5 @@
-<!--pages/project/project.wxml-->
+<!--pages/technicalArticle/technicalArticle.wxml-->
+
 <view class="search_bar">
   <view class='city'>
     <text>地市 ﹀</text>
@@ -19,27 +20,23 @@
     </view>
     <text>|</text>
     <view class="section">
-      <picker bindchange="bindPickerChangeCategory" value="{{indexCategory}}"  range="{{arrayCategory}}" range-key="name">
+      <picker bindchange="bindPickerChangeCategory" value="{{indexCategory}}" range="{{arrayCategory}}">
         <view class="picker">
-          {{arrayCategory[indexCategory].name}}
+          {{arrayCategory[indexCategory]}}
         </view>
       </picker>
     </view>
     <text>|</text>
     <view class="section">
-      <picker bindchange="bindPickerChangeSchedule" value="{{indexSchedule}}" range="{{arraySchedule}}" range-key="name">
-        <view class="picker">
-          {{arraySchedule[indexSchedule].name}}
-        </view>
-      </picker>
+      
     </view>
     <text>|</text>
     <view class="section">
-      <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
-        <view class="picker">
-          {{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}
-        </view>
-      </picker>
+     
+    </view>
+    <text>|</text>
+    <view class="section">
+      
     </view>
   </view>
 <view class='projectlist' >
@@ -53,4 +50,5 @@
   </view>
 </view>
 </view>
+
 
