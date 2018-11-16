@@ -11,7 +11,10 @@ Page({
     indexCategory: 0,
 
     //阶段选择
-    arraySchedule: [],
+    arraySchedule: {
+     
+      name: '全部类别'
+    },
     indexSchedule: 0,
 
    
@@ -23,9 +26,9 @@ Page({
     customItem: '全部',
 
     //省：
-    province:'',
+    province:'河南省',
     //市：
-    city: '',
+    city: '新乡市',
     //类别：
     gongchengleibie: '',
     //阶段：
@@ -35,75 +38,86 @@ Page({
     //页码（从1开始）：
     p: 5,
     //排序方式：
-    paixu: '',
+    paixu: 'viewcount',
     //升序或降序：
-    order: '',
+    order: 'desc',
+    default_fenlei:
+      {
+        
+        name:'全部类别'
+      }
+    ,
+    default_jieduan: [
+      {
+        name: '全部阶段'
+      }
+    ],
 
   arrayProject:[
     
-      {
-        id: 1,
-        title: '正在进行的项目aaa',
-        address:'河南省新乡市红旗区',
-        Category: '全部类别',
-        Schedule:'正在进行时',
-        introduction:'此项目是一个微信小程序项目，主要功能是展示关于钢构方面的信息',
-        Scale: '规模不大不小',
-        Contacts: '张先生',
-        conNumber: '15137311953'
-      },
-      {
-        id: 2,
-        title: '正在进行的项目bb',
-        address: '河南省新乡市红旗区',
-        Category: '全部类别',
-        Schedule: '正在进行时',
-        introduction: '此项目是一个微信小程序项目，主要功能是展示关于钢构方面的信息',
-        Scale: '规模不大不小',
-        Contacts: '张先生',
-        conNumber: '15137311953'
-      }, {
-        id: 3,
-        title: '正在进行的项目ccc',
-        address: '河南省新乡市红旗区',
-        Category: '全部类别',
-        Schedule: '正在进行时',
-        introduction: '此项目是一个微信小程序项目，主要功能是展示关于钢构方面的信息',
-        Scale: '规模不大不小',
-        Contacts: '张先生',
-        conNumber: '15137311953'
-    }, {
-      id: 4,
-      title: '正在进行的项目444',
-      address: '河南省新乡市红旗区',
-      Category: '全部类别',
-      Schedule: '正在进行时',
-      introduction: '此项目是一个微信小程序项目，主要功能是展示关于钢构方面的信息',
-      Scale: '规模不大不小',
-      Contacts: '张先生',
-      conNumber: '15137311953'
-    },
-    {
-      id: 5,
-      title: '正在进行的项目55555',
-      address: '河南省新乡市红旗区',
-      Category: '全部类别',
-      Schedule: '正在进行时',
-      introduction: '此项目是一个微信小程序项目，主要功能是展示关于钢构方面的信息',
-      Scale: '规模不大不小',
-      Contacts: '张先生',
-      conNumber: '15137311953'
-    }, {
-      id: 6,
-      title: '正在进行的项目66666',
-      address: '河南省新乡市红旗区',
-      Category: '全部类别',
-      Schedule: '正在进行时',
-      introduction: '此项目是一个微信小程序项目，主要功能是展示关于钢构方面的信息',
-      Scale: '规模不大不小',
-      Contacts: '张先生',
-      conNumber: '15137311953'
-    }
+  //     {
+  //       id: 1,
+  //       title: '正在进行的项目aaa',
+  //       address:'河南省新乡市红旗区',
+  //       Category: '全部类别',
+  //       Schedule:'正在进行时',
+  //       introduction:'此项目是一个微信小程序项目，主要功能是展示关于钢构方面的信息',
+  //       Scale: '规模不大不小',
+  //       Contacts: '张先生',
+  //       conNumber: '15137311953'
+  //     },
+  //     {
+  //       id: 2,
+  //       title: '正在进行的项目bb',
+  //       address: '河南省新乡市红旗区',
+  //       Category: '全部类别',
+  //       Schedule: '正在进行时',
+  //       introduction: '此项目是一个微信小程序项目，主要功能是展示关于钢构方面的信息',
+  //       Scale: '规模不大不小',
+  //       Contacts: '张先生',
+  //       conNumber: '15137311953'
+  //     }, {
+  //       id: 3,
+  //       title: '正在进行的项目ccc',
+  //       address: '河南省新乡市红旗区',
+  //       Category: '全部类别',
+  //       Schedule: '正在进行时',
+  //       introduction: '此项目是一个微信小程序项目，主要功能是展示关于钢构方面的信息',
+  //       Scale: '规模不大不小',
+  //       Contacts: '张先生',
+  //       conNumber: '15137311953'
+  //   }, {
+  //     id: 4,
+  //     title: '正在进行的项目444',
+  //     address: '河南省新乡市红旗区',
+  //     Category: '全部类别',
+  //     Schedule: '正在进行时',
+  //     introduction: '此项目是一个微信小程序项目，主要功能是展示关于钢构方面的信息',
+  //     Scale: '规模不大不小',
+  //     Contacts: '张先生',
+  //     conNumber: '15137311953'
+  //   },
+  //   {
+  //     id: 5,
+  //     title: '正在进行的项目55555',
+  //     address: '河南省新乡市红旗区',
+  //     Category: '全部类别',
+  //     Schedule: '正在进行时',
+  //     introduction: '此项目是一个微信小程序项目，主要功能是展示关于钢构方面的信息',
+  //     Scale: '规模不大不小',
+  //     Contacts: '张先生',
+  //     conNumber: '15137311953'
+  //   }, {
+  //     id: 6,
+  //     title: '正在进行的项目66666',
+  //     address: '河南省新乡市红旗区',
+  //     Category: '全部类别',
+  //     Schedule: '正在进行时',
+  //     introduction: '此项目是一个微信小程序项目，主要功能是展示关于钢构方面的信息',
+  //     Scale: '规模不大不小',
+  //     Contacts: '张先生',
+  //     conNumber: '15137311953'
+  //   }
     
   ]
 
@@ -116,7 +130,10 @@ Page({
       indexCategory: e.detail.value,
       gongchengleibie: this.data.arrayCategory[e.detail.value].name
     })
-    console.log('类别：', this.data.gongchengleibie)
+    console.log('类别：', this.data.gongchengleibie),
+      // arrayProject = 
+      getproinfo(this.data.province, this.data.city, this.data.gongchengleibie, this.data.jieduan, this.data.pagesize, this.data.p, this.data.paixu, this.data.order) 
+    
   },
 
   //改变阶段选择
@@ -200,10 +217,20 @@ Page({
         'content-type': 'application/x-www-form-urlencoded'  //这里注意POST请求content-type是小写，大写会报错  
       },
       success: function (res) {
+        res.data.push(mythis.data.arraySchedule),
         mythis.setData({ //这里是修改data的值  
-          arraySchedule: res.data //test等于服务器返回来的数据  
+          arraySchedule: res.data, //test等于服务器返回来的数据  
+          indexSchedule: res.data.length-1
+          
         });
+
+        for (var i = 0; i < mythis.data.arraySchedule.length;i++){
+          console.log(mythis.data.arraySchedule[i].name)
+        }
+// indexSchedule
+        // mythis.data.arraySchedule.push(mythis.data.defaultfenlei),
         console.log(mythis.data.arraySchedule)
+          // console.log(mythis.data.default_fenlei)
       },
       fail: function (res) {
         console.log(res);
@@ -259,17 +286,41 @@ Page({
   onShareAppMessage: function () {
 
   },
-
-  onchange:function(){
-    wx.request({
-      url: app.globalData.host + 'index.php/Home/Service/code2session/code/' + code,
-      success: res => {
-        login2(res.data);
-      }
-    })
-  }
 })
 
+/**
+ * 获取项目列表
+ */
+function getproinfo(province, city, gongchengleibie, jieduan, pagesize, p, paixu, order){
+  console.log(province,paixu, order);
+  wx.request({
+    url: app.globalData.host + 'index.php/Home/Service/getproinfo',
+    method: 'post',
+    data: {
+      province: province,
+      city: city,
+      gongchengleibie: gongchengleibie,
+      jieduan: jieduan,
+      pagesize: pagesize,
+      p:p,
+      paixu: paixu,
+      order:order
+    },
+    header: {
+      'content-type': 'application/x-www-form-urlencoded'  //这里注意POST请求content-type是小写，大写会报错  
+    },
+    success: function (res) {
+      this.setData ({
+        arrayProject: res.data
+      });
+      console.log(res.data),
+      console.log(this.setData.arrayProject)
+    },
+    fail: function (res) {
+      console.log(res);
+    }
+  });
+}
 
 /*
 ganggou.e-notice.cn/index.php/Service/getproinfo
@@ -295,172 +346,4 @@ ganggou.e-notice.cn/index.php/Service/getproinfo
 阶段：http://ganggou.e-notice.cn/index.php/Home/Service/list_jieduan
 [{"id":"1","name":"\u5de5\u7a0b\u7b79\u5907","deleted":"0","ddate":null},{"id":"2","name":"\u52d8\u5bdf\u8bbe\u8ba1","deleted":"0","ddate":null},{"id":"3","name":"\u4e3b\u4f53\u65bd\u5de5","deleted":"0","ddate":null},{"id":"4","name":"\u8bbe\u5907\u5b89\u88c5","deleted":"0","ddate":null},{"id":"5","name":"\u88c5\u9970\u88c5\u4fee","deleted":"0","ddate":null},{"id":"6","name":"\u56ed\u6797\u666f\u89c2","deleted":"0","ddate":null},{"id":"7","name":"\u5b8c\u5de5","deleted":"0","ddate":null},{"id":"8","name":"\u5176\u5b83","deleted":"0","ddate":null}]
 
-
-
 */
-
-// Page({
-//   data: {
-//     array: ['美国', '中国', '巴西', '日本'],
-//     objectArray: [
-//       {
-//         id: 0,
-//         name: '美国'
-//       },
-//       {
-//         id: 1,
-//         name: '中国'
-//       },
-//       {
-//         id: 2,
-//         name: '巴西'
-//       },
-//       {
-//         id: 3,
-//         name: '日本'
-//       }
-//     ],
-//     index: 0,
-//     multiArray: [['无脊柱动物', '脊柱动物'], ['扁性动物', '线形动物', '环节动物', '软体动物', '节肢动物'], ['猪肉绦虫', '吸血虫']],
-//     objectMultiArray: [
-//       [
-//         {
-//           id: 0,
-//           name: '无脊柱动物'
-//         },
-//         {
-//           id: 1,
-//           name: '脊柱动物'
-//         }
-//       ], [
-//         {
-//           id: 0,
-//           name: '扁性动物'
-//         },
-//         {
-//           id: 1,
-//           name: '线形动物'
-//         },
-//         {
-//           id: 2,
-//           name: '环节动物'
-//         },
-//         {
-//           id: 3,
-//           name: '软体动物'
-//         },
-//         {
-//           id: 3,
-//           name: '节肢动物'
-//         }
-//       ], [
-//         {
-//           id: 0,
-//           name: '猪肉绦虫'
-//         },
-//         {
-//           id: 1,
-//           name: '吸血虫'
-//         }
-//       ]
-//     ],
-//     multiIndex: [0, 0, 0],
-//     date: '2016-09-01',
-//     time: '12:01',
-//     region: ['广东省', '广州市'],
-//     customItem: '全部'
-//   },
-//   bindPickerChange: function (e) {
-//     console.log('picker发送选择改变，携带值为', e.detail.value)
-//     this.setData({
-//       index: e.detail.value
-//     })
-//   },
-//   bindMultiPickerChange: function (e) {
-//     console.log('picker发送选择改变，携带值为', e.detail.value)
-//     this.setData({
-//       multiIndex: e.detail.value
-//     })
-//   },
-//   bindMultiPickerColumnChange: function (e) {
-//     console.log('修改的列为', e.detail.column, '，值为', e.detail.value);
-//     var data = {
-//       multiArray: this.data.multiArray,
-//       multiIndex: this.data.multiIndex
-//     };
-//     data.multiIndex[e.detail.column] = e.detail.value;
-//     switch (e.detail.column) {
-//       case 0:
-//         switch (data.multiIndex[0]) {
-//           case 0:
-//             data.multiArray[1] = ['扁性动物', '线形动物', '环节动物', '软体动物', '节肢动物'];
-//             data.multiArray[2] = ['猪肉绦虫', '吸血虫'];
-//             break;
-//           case 1:
-//             data.multiArray[1] = ['鱼', '两栖动物', '爬行动物'];
-//             data.multiArray[2] = ['鲫鱼', '带鱼'];
-//             break;
-//         }
-//         data.multiIndex[1] = 0;
-//         data.multiIndex[2] = 0;
-//         break;
-//       case 1:
-//         switch (data.multiIndex[0]) {
-//           case 0:
-//             switch (data.multiIndex[1]) {
-//               case 0:
-//                 data.multiArray[2] = ['猪肉绦虫', '吸血虫'];
-//                 break;
-//               case 1:
-//                 data.multiArray[2] = ['蛔虫'];
-//                 break;
-//               case 2:
-//                 data.multiArray[2] = ['蚂蚁', '蚂蟥'];
-//                 break;
-//               case 3:
-//                 data.multiArray[2] = ['河蚌', '蜗牛', '蛞蝓'];
-//                 break;
-//               case 4:
-//                 data.multiArray[2] = ['昆虫', '甲壳动物', '蛛形动物', '多足动物'];
-//                 break;
-//             }
-//             break;
-//           case 1:
-//             switch (data.multiIndex[1]) {
-//               case 0:
-//                 data.multiArray[2] = ['鲫鱼', '带鱼'];
-//                 break;
-//               case 1:
-//                 data.multiArray[2] = ['青蛙', '娃娃鱼'];
-//                 break;
-//               case 2:
-//                 data.multiArray[2] = ['蜥蜴', '龟', '壁虎'];
-//                 break;
-//             }
-//             break;
-//         }
-//         data.multiIndex[2] = 0;
-//         console.log(data.multiIndex);
-//         break;
-//     }
-//     this.setData(data);
-//   },
-//   bindDateChange: function (e) {
-//     console.log('picker发送选择改变，携带值为', e.detail.value)
-//     this.setData({
-//       date: e.detail.value
-//     })
-//   },
-//   bindTimeChange: function (e) {
-//     console.log('picker发送选择改变，携带值为', e.detail.value)
-//     this.setData({
-//       time: e.detail.value
-//     })
-//   },
-//   bindRegionChange: function (e) {
-//     console.log('picker发送选择改变，携带值为', e.detail.value)
-//     this.setData({
-//       region: e.detail.value
-//     })
-//   }
-// })
