@@ -41,7 +41,7 @@ Page({
 */
   project: function (event) {
     wx.navigateTo({
-      url: '/pages/project/project',
+      url: '/pages/project/projectPage/projectPage',
     });
   },
   
@@ -50,7 +50,7 @@ Page({
 */
   technicalArticle: function (event) {
     wx.navigateTo({
-      url: '/pages/technicalArticle/technicalArticle',
+      url: '/pages/technicalArticle/ArticlePage/ArticlePage',
     });
   },
 

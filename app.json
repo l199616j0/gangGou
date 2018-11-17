@@ -5,11 +5,14 @@
     "pages/nearby/nearby",
     "pages/add/addPage/addPage",
     "pages/friend/friendPage/friendPage",
+    "pages/friend/business/business",
+    "pages/friend/chat/chat",
+    "pages/friend/region/region",
     "pages/user/user",
     "pages/helpinfo/helpinfo",
     "pages/Personal/user/user",
-    "pages/project/project",
-    "pages/technicalArticle/technicalArticle"
+    "pages/project/projectPage/projectPage",
+    "pages/technicalArticle/ArticlePage/ArticlePage"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -40,13 +43,13 @@
         "selectedIconPath": "images/W64_18.png"
       },
       {
-        "pagePath": "pages/Personal/user/user",
-        "text": "朋友",
+        "pagePath": "pages/friend/business/business",
+        "text": "商圈",
         "iconPath": "images/B64_90.png",
         "selectedIconPath": "images/W64_90.png"
       },
       {
-        "pagePath": "pages/user/user",
+        "pagePath": "pages/Personal/user/user",
         "text": "我的",
         "iconPath": "images/B64_30.png",
         "selectedIconPath": "images/W64_30.png"
