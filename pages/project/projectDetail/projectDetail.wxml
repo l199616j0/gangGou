@@ -1,0 +1,28 @@
+<!--pages/project/projectDetail/projectDetail.wxml-->
+<view class='body'>
+<view class='center'>
+
+
+  <view class='title'>
+    {{detail.gongchengmingcheng}}
+  </view>
+  <view class='faburiqi'>
+  {{detail.faburiqi}}
+  </view>
+  <view class='line'></view>
+  <text>项目类别：</text><text class='vlue'>{{detail.leixing}}</text>
+  <text class='jieduanlable'>项目阶段：</text><text class='vlue'>{{detail.jieduan}}</text>
+  <view style='margin-top:10px'></view>
+  <text class='dizhiLable'>项目地址：</text>
+  <text class='dizhi vlue'>{{detail.province}} {{detail.city}}</text>
+  
+  <view class='jianjieLable'>项目简介：</view>
+  <view class='jianjie vlue'>
+  {{detail.gaikuang}}
+  </view>
+  <view class='line'></view>
+  <text>联系人：</text><text class='vlue'>{{detail.leixing}}</text>
+  <view style='margin-top:10px'></view>
+  <text>联系电话：</text> <button></button>
+</view>
+</view>

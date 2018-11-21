@@ -43,13 +43,11 @@
     </view>
   </view>
 <view class='projectlist' >
-  <view class='project project1'  wx:for="{{arrayProject}}"  wx:for-item="itemProjec" wx:key="id">
-    <view class='left'>
-      <view class='projectText'>{{itemProjec.title}}</view>
-      <view class='projectIntroduction'>{{itemProjec.introduction}}</view>
-      <text class='projectLabel'>{{itemProjec.Contacts}}</text>
-    </view>
-    <image src='/images/timg.jpg' mode='aspectFit'></image>
+  <view class='project'  wx:for="{{arrayProject}}"  wx:for-item="itemProjec" wx:key="id" data-datas="{{itemProjec}}" bindtap='projectDetail'>
+      <view class='projectText'> {{itemProjec.gongchengmingcheng}} </view>
+      <view class='projectleibie label'> {{arrayCategory[itemProjec.leixing].name}} </view>
+      <view class='projectjiesuan label'> {{arraySchedule[itemProjec.jieduan].name}} </view>
+      <view class='projectTime'> {{itemProjec.faburiqi}} </view>
   </view>
 </view>
 </view>
