@@ -7,13 +7,16 @@ Page({
    */
   data: {
     //类型选择
-    arrayCategory: [],
+    arrayCategory: {
+
+      name: '全部类别'
+    },
     indexCategory: 0,
 
     //阶段选择
     arraySchedule: {
      
-      name: '全部类别'
+      name: '全部阶段'
     },
     indexSchedule: 0,
 
@@ -26,9 +29,9 @@ Page({
     customItem: '全部',
 
     //省：
-    province:'河南省',
+    province:'',
     //市：
-    city: '新乡市',
+    city: '',
     //类别：
     gongchengleibie: '',
     //阶段：
@@ -52,79 +55,15 @@ Page({
         name: '全部阶段'
       }
     ],
-
+    detail: [],
   arrayProject:[
-    
-  //     {
-  //       id: 1,
-  //       title: '正在进行的项目aaa',
-  //       address:'河南省新乡市红旗区',
-  //       Category: '全部类别',
-  //       Schedule:'正在进行时',
-  //       introduction:'此项目是一个微信小程序项目，主要功能是展示关于钢构方面的信息',
-  //       Scale: '规模不大不小',
-  //       Contacts: '张先生',
-  //       conNumber: '15137311953'
-  //     },
-  //     {
-  //       id: 2,
-  //       title: '正在进行的项目bb',
-  //       address: '河南省新乡市红旗区',
-  //       Category: '全部类别',
-  //       Schedule: '正在进行时',
-  //       introduction: '此项目是一个微信小程序项目，主要功能是展示关于钢构方面的信息',
-  //       Scale: '规模不大不小',
-  //       Contacts: '张先生',
-  //       conNumber: '15137311953'
-  //     }, {
-  //       id: 3,
-  //       title: '正在进行的项目ccc',
-  //       address: '河南省新乡市红旗区',
-  //       Category: '全部类别',
-  //       Schedule: '正在进行时',
-  //       introduction: '此项目是一个微信小程序项目，主要功能是展示关于钢构方面的信息',
-  //       Scale: '规模不大不小',
-  //       Contacts: '张先生',
-  //       conNumber: '15137311953'
-  //   }, {
-  //     id: 4,
-  //     title: '正在进行的项目444',
-  //     address: '河南省新乡市红旗区',
-  //     Category: '全部类别',
-  //     Schedule: '正在进行时',
-  //     introduction: '此项目是一个微信小程序项目，主要功能是展示关于钢构方面的信息',
-  //     Scale: '规模不大不小',
-  //     Contacts: '张先生',
-  //     conNumber: '15137311953'
-  //   },
-  //   {
-  //     id: 5,
-  //     title: '正在进行的项目55555',
-  //     address: '河南省新乡市红旗区',
-  //     Category: '全部类别',
-  //     Schedule: '正在进行时',
-  //     introduction: '此项目是一个微信小程序项目，主要功能是展示关于钢构方面的信息',
-  //     Scale: '规模不大不小',
-  //     Contacts: '张先生',
-  //     conNumber: '15137311953'
-  //   }, {
-  //     id: 6,
-  //     title: '正在进行的项目66666',
-  //     address: '河南省新乡市红旗区',
-  //     Category: '全部类别',
-  //     Schedule: '正在进行时',
-  //     introduction: '此项目是一个微信小程序项目，主要功能是展示关于钢构方面的信息',
-  //     Scale: '规模不大不小',
-  //     Contacts: '张先生',
-  //     conNumber: '15137311953'
-  //   }
-    
-  ]
+  ],
 
   },
 
   //改变类型选择器
   bindPickerChangeCategory: function (e) {
+    var mythis = this;
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       indexCategory: e.detail.value,
@@ -132,17 +71,19 @@ Page({
     })
     console.log('类别：', this.data.gongchengleibie),
       // arrayProject = 
-      getproinfo(this.data.province, this.data.city, this.data.gongchengleibie, this.data.jieduan, this.data.pagesize, this.data.p, this.data.paixu, this.data.order) 
+      getproinfo(this.data.province, this.data.city, this.data.gongchengleibie, this.data.jieduan, this.data.pagesize, this.data.p, this.data.paixu, this.data.order,this) 
     
   },
 
   //改变阶段选择
   bindPickerChangeSchedule: function (e) {
+    var mythis = this;
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       indexSchedule: e.detail.value,
       jieduan: this.data.arraySchedule[e.detail.value].name
     })
+    getproinfo(this.data.province, this.data.city, this.data.gongchengleibie, this.data.jieduan, this.data.pagesize, this.data.p, this.data.paixu, this.data.order, this),
     console.log('阶段：', this.data.jieduan)
 
   },
@@ -150,46 +91,38 @@ Page({
 
   //改变排序方式选择器
   bindMultiPickerChange: function (e) {
+    var mythis = this;
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       multiIndex: e.detail.value,
       paixu: this.data.multiArray[0][e.detail.value[0]],
       orser: this.data.multiArray[1][e.detail.value[1]]
     })
-    console.log('排序规则：', this.data.paixu,'排序方式：',this.data,order)
+    getproinfo(this.data.province, this.data.city, this.data.gongchengleibie, this.data.jieduan, this.data.pagesize, this.data.p, this.data.paixu, this.data.order, this),
+    console.log('排序规则：', this.data.paixu,'排序方式：',this.data.order)
 
   },
   bindMultiPickerColumnChange: function (e) {
-    console.log('修改的列为', e.detail.column, '，值为', e.detail.value);
-    // if (e.detail.column == 0)
-    //   this.setData({
-    //     multiIndex: e.detail.value,
-    //     paixu: this.data.multiArray[e.detail.column][e.detail.value]
-    //   })
-    // else
-    //   this.setData({
-    //     multiIndex: e.detail.value,
-    //     orser: this.data.multiArray[e.detail.column][e.detail.value]
-    //   })
-
+    console.log('修改的列为', e.detail.column, '，值为', e.detail.value)
   },
 
 
 //改变地区选择器
   bindRegionChange: function (e) {
+    var mythis = this;
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       region: e.detail.value,
       province: this.data.region[0],
       city: this.data.region[1]
     })
+    getproinfo(this.data.province, this.data.city, this.data.gongchengleibie, this.data.jieduan, this.data.pagesize, this.data.p, this.data.paixu, this.data.order, this),
     console.log('province:', this.data.province, 'city:', this.data.city)
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  // test :[],
   onLoad: function (options) {
     var mythis = this;
     wx.request({
@@ -200,8 +133,10 @@ Page({
         'content-type': 'application/x-www-form-urlencoded'  //这里注意POST请求content-type是小写，大写会报错  
       },
       success: function (res) {
-        mythis.setData({ //这里是修改data的值  
-        arrayCategory: res.data //test等于服务器返回来的数据  
+        res.data.push(mythis.data.arrayCategory),
+        mythis.setData({   
+        arrayCategory: res.data,
+          indexCategory: res.data.length - 1
         });
         console.log(mythis.data.arrayCategory)
       },
@@ -214,33 +149,39 @@ Page({
       method: 'post',
       data: {},
       header: {
-        'content-type': 'application/x-www-form-urlencoded'  //这里注意POST请求content-type是小写，大写会报错  
+        'content-type': 'application/x-www-form-urlencoded'    
       },
       success: function (res) {
         res.data.push(mythis.data.arraySchedule),
-        mythis.setData({ //这里是修改data的值  
-          arraySchedule: res.data, //test等于服务器返回来的数据  
-          indexSchedule: res.data.length-1
-          
+        mythis.setData({   
+          arraySchedule: res.data,
+          indexSchedule: res.data.length - 1,
         });
-
-        for (var i = 0; i < mythis.data.arraySchedule.length;i++){
-          console.log(mythis.data.arraySchedule[i].name)
-        }
-// indexSchedule
-        // mythis.data.arraySchedule.push(mythis.data.defaultfenlei),
-        console.log(mythis.data.arraySchedule)
-          // console.log(mythis.data.default_fenlei)
+        console.log(mythis.data.arraySchedule);
       },
       fail: function (res) {
         console.log(res);
       }
     });
+    getproinfo(this.data.province, this.data.city, this.data.gongchengleibie, this.data.jieduan, this.data.pagesize, this.data.p, this.data.paixu, this.data.order,mythis)
   },
 
+    /**
+   * 点击项目列表查看详情
+   */
+  projectDetail:function(even){
+    
+    even.currentTarget.dataset.datas.leixing = this.data.arrayCategory[even.currentTarget.dataset.datas.leixing].name,
+    even.currentTarget.dataset.datas.jieduan = this.data.arraySchedule[even.currentTarget.dataset.datas.jieduan].name,
+    wx.navigateTo({
+      url: '/pages/project/projectDetail/projectDetail?datas=' + JSON.stringify(even.currentTarget.dataset.datas),
+    });
+    console.log(even.currentTarget.dataset.datas)
+  },
+  
   /**
    * 生命周期函数--监听页面初次渲染完成
-   */
+   */ 
   onReady: function () {
 
   },
@@ -291,8 +232,13 @@ Page({
 /**
  * 获取项目列表
  */
-function getproinfo(province, city, gongchengleibie, jieduan, pagesize, p, paixu, order){
+function getproinfo(province, city, gongchengleibie, jieduan, pagesize, p, paixu, order, mythis){
   console.log(province,paixu, order);
+  if(gongchengleibie == "全部类别")
+    gongchengleibie = '';
+  if (jieduan == "全部阶段")
+    jieduan = '';
+
   wx.request({
     url: app.globalData.host + 'index.php/Home/Service/getproinfo',
     method: 'post',
@@ -307,14 +253,17 @@ function getproinfo(province, city, gongchengleibie, jieduan, pagesize, p, paixu
       order:order
     },
     header: {
-      'content-type': 'application/x-www-form-urlencoded'  //这里注意POST请求content-type是小写，大写会报错  
+      'content-type': 'application/x-www-form-urlencoded' 
     },
     success: function (res) {
-      this.setData ({
-        arrayProject: res.data
+      mythis.setData ({
+        arrayProject: res.data.rows
       });
-      console.log(res.data),
-      console.log(this.setData.arrayProject)
+      mythis.data.arrayProject.push(res.data.rows[0]),
+      console.log("参数：",province, city, gongchengleibie, jieduan, pagesize,p,paixu,order),
+        console.log(mythis.data.arrayProject),
+        console.log(res.data.rows[0])
+     
     },
     fail: function (res) {
       console.log(res);

@@ -63,42 +63,45 @@
 .projectlist{
   width: 100%;
   position: absolute;
-  margin-top: 50px;
+  margin-top: 60px;
 }
 .project{
   margin-top: 10px;
-  padding-bottom: 10px;
   border-bottom: 1px solid #DADADA;
-}
-.project1{
-  margin-top: 20px;
+  width: 100%;
+  /* margin-left: 15px; */
 }
 .project view{
- 
+ /* margin-left: 5px; */
   display: inline-block;
 }
-.left{
-   width: 60%;
-    margin-left: 15px;
-}
-.project>image{
-  width: 30%;
-  height: 65px;
-}
+
 .projectText{
+  margin-left: 15px;
   line-height: 16px;
   text-align: left;
-  width: 94%;
-  height: 60%;
+  width: 90%;
+  text-overflow:ellipsis;/*设置标签超出长度时用省略号代替*/
+  white-space: nowrap;/*white-space是设置文本不换行*/
+  overflow: hidden;/*overflow设置标签超出部分自动隐藏*/
   color:#050505;
   margin-bottom: 5px;
 }
-.projectIntroduction{
+.label{
   text-align: left;
-  width: 94%;
-  color: #8d8c8c;
+  /* width: 20%; */
+  /* color: #8d8c8c; */
+  background: #fffcfc;
+  border: 1px solid #ff9378;
+  border-radius: 10rpx;
+  margin: 2px;
+  padding:1px 2px;
+  color: #fd2b2b;
 }
-.projectLabel{
-  color: #ff6d48;
-  padding-bottom: 15px;
+.projectleibie{
+  margin-left: 15px;
+}
+.projectTime{
+  color: #c5c5c5;
+  padding-bottom: 10px;
 }
