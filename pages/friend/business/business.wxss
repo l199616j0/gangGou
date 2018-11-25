@@ -22,18 +22,20 @@
 
 .new, .project{
   width: 100%;
-  height: 15%;
+  height: 100%;
   margin: 0 ;
   margin-top: 10px;
   background: white;
 }
 .new_title, .project_title{
-  margin-left: 5px;
-  margin: 0 10%;
-  height: 20px;
+  height: 30px;
   padding-top: 5px;
   border-bottom: 1px solid #DADADA;
   margin-bottom: 2px;
+  font-size: 15px;
+}
+.new_title text{
+  margin-left: 30px;
 }
 .Modular{
   margin-top: 10px;
@@ -42,9 +44,15 @@
   text-align: center;
 }
 .myself{
-  border: 1px solid	#F0F0F0;
+  border-left: 1px solid	#F0F0F0;
+  border-right: 1px solid	#F0F0F0;
+  border-bottom: 1px solid	#F0F0F0;
   width: 100%;
+  height: 30px;
 }
 .myself text{
-  
+  margin-left: 30px;
+  line-height: 25px;
+  font-size: 13px;
+
 }

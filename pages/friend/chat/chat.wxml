@@ -124,10 +124,5 @@
 
     </form>
 
-    <!-- <view class='increased {{aniStyle?"slideup":"slidedown"}}' wx:if="{{increase}}">
-
-        <view class="image" bindtap='chooseImage'>相册 </view>
-
-    </view> -->
 
 </view>
