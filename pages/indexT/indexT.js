@@ -1,6 +1,6 @@
 // pages/indexT.js
 var bmap = require('../../libs/bmap-wx.js');
-var wxMarkerData = []; 
+var wxMarkerData = [];
 Page({
 
   /**
@@ -8,14 +8,14 @@ Page({
    */
   data: {
 
-  },                 
+  },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     var that = this;
-    // 新建百度地图对象 
+    // 新建百度地图对象
     var BMap = new bmap.BMapWX({
       ak: 'PPwVGvHTtc0NkihLZwWVD1fYYhQWfp6u'
     });
@@ -29,7 +29,7 @@ Page({
       console.log("地址:" + wxMarkerData[0].address);
       console.log(data);
     }
-    // 发起regeocoding检索请求 
+    // 发起regeocoding检索请求
     BMap.regeocoding({
       fail: fail,
       success: success
@@ -44,7 +44,7 @@ Page({
       url: '/pages/project/projectPage/projectPage',
     });
   },
-  
+
 /*
 技术文章
 */

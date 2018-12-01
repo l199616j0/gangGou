@@ -31,10 +31,15 @@
       <text>我的商圈</text>
     </view>
     <view class='new_text'>
-     <view bindtap='information'>
-       <text> {{text1}}</text>
-       
+     <view  class="myself"  bindtap='information'>
+       <text>钢构联盟</text>
       </view>
+      <view  class="myself"  bindtap='information'>
+        <text>手机QQ</text>
+       </view>
+      <view  class="myself"  bindtap='information'>
+         <text>电脑版微信</text>
+        </view>
 
     </view>
   </view>

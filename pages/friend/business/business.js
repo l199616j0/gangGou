@@ -9,11 +9,11 @@ Page({
   },
     onload: function () {
       this.setData({
-        text1: "商圈" 
+        text1: "商圈"
       });
     },
 
-  
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -72,7 +72,7 @@ Page({
     // wx.navigateTo({
     //   url: '/pages/industry/industry',
     // });
-  }, 
+  },
   recommend: function (event) {
     // wx.navigateTo({
     //   url: '/pages/recommend/recommend',
