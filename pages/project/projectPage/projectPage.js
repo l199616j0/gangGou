@@ -263,7 +263,6 @@ function getproinfo(province, city, gongchengleibie, jieduan, pagesize, p, paixu
       console.log("参数：",province, city, gongchengleibie, jieduan, pagesize,p,paixu,order),
         console.log(mythis.data.arrayProject),
         console.log(res.data.rows[0])
-     
     },
     fail: function (res) {
       console.log(res);
