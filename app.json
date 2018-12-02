@@ -12,7 +12,8 @@
     "pages/helpinfo/helpinfo",
     "pages/Personal/user/user",
     "pages/project/projectPage/projectPage",
-    "pages/technicalArticle/ArticlePage/ArticlePage"
+    "pages/technicalArticle/ArticlePage/ArticlePage",
+    "pages/project/projectDetail/projectDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",
