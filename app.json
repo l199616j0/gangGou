@@ -13,7 +13,8 @@
     "pages/Personal/user/user",
     "pages/project/projectPage/projectPage",
     "pages/technicalArticle/ArticlePage/ArticlePage",
-    "pages/project/projectDetail/projectDetail"
+    "pages/project/projectDetail/projectDetail",
+    "pages/technicalArticle/ArticleDetail/ArticleDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -22,7 +22,8 @@ Page({
 
    
     //排序方式选择：
-    multiArray: [['热度', '时间'], ['降序', '升序']],//二维数组，长度是多少是几列
+    multiArray: [['热度', '日期'], ['降序', '升序']],//二维数组，长度是多少是几列
+    multiArray1: [['viewcount', 'faburiqi'], ['desc', 'asc']],
     multiIndex: [0, 0],
 
     region: ['河南省', '新乡市'],
@@ -37,9 +38,9 @@ Page({
     //阶段：
     jieduan: '',
     //每页显示的行数：
-    pagesize: 1,
+    pagesize: 5,
     //页码（从1开始）：
-    p: 5,
+    p: 1,
     //排序方式：
     paixu: 'viewcount',
     //升序或降序：
@@ -90,8 +91,8 @@ Page({
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       multiIndex: e.detail.value,
-      paixu: this.data.multiArray[0][e.detail.value[0]],
-      orser: this.data.multiArray[1][e.detail.value[1]]
+      paixu: this.data.multiArray1[0][e.detail.value[0]],
+      orser: this.data.multiArray1[1][e.detail.value[1]]
     });
     getproinfo(this.data.province, this.data.city, this.data.gongchengleibie, this.data.jieduan, this.data.pagesize, this.data.p, this.data.paixu, this.data.order, this);
     console.log('排序规则：', this.data.paixu,'排序方式：',this.data.order)

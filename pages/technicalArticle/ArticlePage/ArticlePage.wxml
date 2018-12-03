@@ -10,17 +10,28 @@
   </view>
 </view>
 <view class='body'>
-  <view class='leibie' wx:for="{{arrayProject}}"  wx:for-item="itemProjec" wx:key="id">
-
+  <view class="section">
+      <picker bindchange="bindPickerChangeLeibie" value="{{indexleibie}}" range="{{Allleibie}}" range-key="name">
+        <view class="picker">
+          {{Allleibie[indexleibie].name}}
+        </view>
+      </picker>
+    </view>
     <text>|</text>
-  </view>
+    <view class="section">
+      <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+        <view class="picker">
+          {{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}
+        </view>
+      </picker>
+    </view>
 
-<view class='projectlist' >
-  <view class='project project1'  wx:for="{{arrayProject}}"  wx:for-item="itemProjec" wx:key="id">
+<view class='Articlelist' >
+  <view class='Article Article1'  wx:for="{{Articlelist}}"  wx:for-item="itemArticle" wx:key="id">
     <view class='left'>
-      <view class='projectText'>{{itemProjec.title}}</view>
-      <view class='projectIntroduction'>{{itemProjec.introduction}}</view>
-      <text class='projectLabel'>{{itemProjec.Contacts}}</text>
+      <view class='ArticleText'>{{itemArticle.id}}</view>
+      <view class='ArticleIntroduction'>{{itemArticle.introduction}}</view>
+      <text class='ArticleLabel'>{{itemArticle.Contacts}}</text>
     </view>
     <image src='/images/timg.jpg' mode='aspectFit'></image>
   </view>

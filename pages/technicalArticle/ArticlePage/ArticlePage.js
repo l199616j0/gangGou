@@ -6,11 +6,26 @@ Page({
    * 页面的初始数据
    */
   data: {
-    //类型选择
-    Allleibie: [],
-    nowleibie: 0,
-    Articlelist: [],
-    ArticleDetail: [],
+    Articlelist: {},
+    ArticleDetail: {},
+    Allleibie: {
+      id: 0,
+      name: '全部类别'
+    },
+    indexleibie: 0,
+    nowleibie: '',
+    //每页显示的行数：
+    pagesize:3,
+    //页码（从1开始）：
+    p: 1,
+    //排序方式：
+    paixu: 'readcount',
+    //升序或降序：
+    order: 'desc',
+    //排序方式选择：
+    multiArray: [['热度','日期'], ['降序', '升序']],
+    multiArray1: [['readcount', 'adddate'], ['desc', 'asc']],//二维数组，长度是多少是几列
+    multiIndex: [0, 0],
   },
   /**
    * 生命周期函数--监听页面加载
@@ -22,34 +37,66 @@ Page({
       method: 'post',
       data: {},
       header: {
-        'content-type': 'application/x-www-form-urlencoded'  //这里注意POST请求content-type是小写，大写会报错  
+        'content-type': 'application/x-www-form-urlencoded'  
       },
       success: function (res) {
-        res.data.push(mythis.data.arrayCategory),
+        res.data.push(mythis.data.Allleibie),
           mythis.setData({
           Allleibie: res.data
           });
-        console.log(mythis.data.leibie)
+        console.log(res.data)
       },
       fail: function (res) {
         console.log(res);
       }
     });
-    getarticles(this.data.leibie, this.data.pagesize, this.data.p, this.data.paixu, this.data.order, mythis)
+    getarticles(this.data.nowleibie, this.data.pagesize, this.data.p, this.data.paixu, this.data.order, mythis)
   },
 
   /**
  * 点击项目列表查看详情
  */
-  projectDetail: function (even) {
+  ArticleDetail: function (even) {
 
-    even.currentTarget.dataset.datas.leixing = this.data.arrayCategory[even.currentTarget.dataset.datas.leixing].name,
-      even.currentTarget.dataset.datas.jieduan = this.data.arraySchedule[even.currentTarget.dataset.datas.jieduan].name,
+      getArticleDetail(even.currentTarget.dataset.datas.id);
       wx.navigateTo({
-        url: '/pages/project/projectDetail/projectDetail?datas=' + JSON.stringify(even.currentTarget.dataset.datas),
+        url: '/pages/project/projectDetail/ArticleDetail?datas=' + JSON.stringify(this.data.ArticleDetail),
       });
-    console.log(even.currentTarget.dataset.datas)
+    console.log(this.data.ArticleDetail)
   },
+
+   /**
+ * 改变类别选择器
+ */
+  bindPickerChangeleibie: function (e) {
+    var mythis = this;
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      indexleibie: e.detail.value,
+      nowleibie: this.data.Allleibie[e.detail.value].id
+    })
+    if (this.data.nowleibie == "0")
+      this.data.nowleibie = '';
+    getarticles(this.data.nowleibie, this.data.pagesize, this.data.p, this.data.paixu, this.data.order, mythis),
+      console.log('类别：', this.data.nowleibie)
+  },
+
+    /**
+ * 改变排序方式的选择器
+ */
+  bindMultiPickerChange: function (e) {
+    var mythis = this;
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      multiIndex: e.detail.value,
+      paixu: this.data.multiArray1[0][e.detail.value[0]],
+      orser: this.data.multiArray1[1][e.detail.value[1]]
+    });
+    getarticles(this.data.nowleibie, this.data.pagesize, this.data.p, this.data.paixu, this.data.order, mythis),
+    console.log('排序规则：', this.data.paixu, '排序方式：', this.data.order)
+
+  },
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -104,28 +151,46 @@ Page({
 /**
  * 获取项目列表
  */
-function getarticles(leibie, pagesize, p, paixu, order, mythis) {
+function getarticles(nowleibie, pagesize, p, paixu, order, mythis) {
   wx.request({
     url: app.globalData.host + 'index.php/Home/Service/getarticles',
     method: 'post',
     data: {
-      leibie: leibie,
+      nowleibie: nowleibie,
       pagesize: pagesize,
       p: p,
       paixu: paixu,
-      order: order
+      order: order,
     },
     header: {
       'content-type': 'application/x-www-form-urlencoded'
     },
     success: function (res) {
       mythis.setData({
-        arrayProject: res.data.rows
+        Articlelist: res.data
       });
-      mythis.data.arrayProject.push(res.data.rows[0]),
-        console.log("参数：", province, city, gongchengleibie, jieduan, pagesize, p, paixu, order),
-        console.log(mythis.data.arrayProject),
-        console.log(res.data.rows[0])
+      console.log(mythis.data.Articlelist)
+    },
+    fail: function (res) {
+      console.log(res);
+    }
+  });
+};
+function getArticleDetail(id) {
+  wx.request({
+    url: app.globalData.host + 'index.php/Home/Service/getarticlebyid',
+    method: 'post',
+    data: {
+      id: id
+    },
+    header: {
+      'content-type': 'application/x-www-form-urlencoded'  //这里注意POST请求content-type是小写，大写会报错  
+    },
+    success: function (res) {
+        mythis.setData({
+        ArticleDetail: res.data
+        });
+      console.log(mythis.data)
     },
     fail: function (res) {
       console.log(res);

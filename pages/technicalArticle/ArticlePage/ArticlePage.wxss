@@ -48,7 +48,7 @@
   margin: 2px;
 }
 .section{
-  width: 16%;
+  width: 30%;
 }
 .sectionCity{
   width: 25%;
@@ -60,20 +60,21 @@
   text-align: center;
 }
 
-.projectlist{
+
+.Articlelist{
   width: 100%;
   position: absolute;
   margin-top: 50px;
 }
-.project{
+.Article{
   margin-top: 10px;
   padding-bottom: 10px;
   border-bottom: 1px solid #DADADA;
 }
-.project1{
+.Article1{
   margin-top: 20px;
 }
-.project view{
+.Article view{
  
   display: inline-block;
 }
@@ -81,11 +82,11 @@
    width: 60%;
     margin-left: 15px;
 }
-.project>image{
+.Article>image{
   width: 30%;
   height: 65px;
 }
-.projectText{
+.ArticleText{
   line-height: 16px;
   text-align: left;
   width: 94%;
@@ -93,12 +94,12 @@
   color:#050505;
   margin-bottom: 5px;
 }
-.projectIntroduction{
+.ArticleIntroduction{
   text-align: left;
   width: 94%;
   color: #8d8c8c;
 }
-.projectLabel{
+.ArticleLabel{
   color: #ff6d48;
   padding-bottom: 15px;
 }
