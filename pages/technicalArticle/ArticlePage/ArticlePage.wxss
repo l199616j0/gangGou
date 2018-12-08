@@ -18,7 +18,7 @@
 {
   width:60%;
   float: left;
-  border: 1px solid #d0d0d0;
+  border: 1px solid #d0d0d0; 
   border-radius: 22rpx;
   padding-left: 30px;
   font-size: 12px;
@@ -48,10 +48,7 @@
   margin: 2px;
 }
 .section{
-  width: 30%;
-}
-.sectionCity{
-  width: 25%;
+  width: 48%;
 }
 .choice text{
   color: #dfdfdf;
@@ -102,4 +99,11 @@
 .ArticleLabel{
   color: #ff6d48;
   padding-bottom: 15px;
+}
+
+.remind{
+  margin-top: 10px;
+  color: #afadad;
+  text-align: center;
+
 }
