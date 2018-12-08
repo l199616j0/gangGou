@@ -8,21 +8,22 @@ Page({
   data: {
     //类型选择
     arrayCategory: {
-
+      id:0,
       name: '全部类别'
     },
     indexCategory: 0,
 
     //阶段选择
     arraySchedule: {
-     
+      id: 0,
       name: '全部阶段'
     },
     indexSchedule: 0,
 
    
     //排序方式选择：
-    multiArray: [['热度', '时间'], ['降序', '升序']],//二维数组，长度是多少是几列
+    multiArray: [['热度', '日期'], ['降序', '升序']],//二维数组，长度是多少是几列
+    multiArray1: [['viewcount', 'faburiqi'], ['desc', 'asc']],
     multiIndex: [0, 0],
 
     region: ['河南省', '新乡市'],
@@ -37,38 +38,31 @@ Page({
     //阶段：
     jieduan: '',
     //每页显示的行数：
-    pagesize: 1,
+    pagesize: 5,
     //页码（从1开始）：
-    p: 5,
+    p: 1,
     //排序方式：
     paixu: 'viewcount',
     //升序或降序：
     order: 'desc',
-    default_fenlei:
-      {
-        
-        name:'全部类别'
-      }
-    ,
-    default_jieduan: [
-      {
-        name: '全部阶段'
-      }
-    ],
     detail: [],
   arrayProject:[
   ],
 
   },
-
+  
   //改变类型选择器
   bindPickerChangeCategory: function (e) {
     var mythis = this;
     console.log('picker发送选择改变，携带值为', e.detail.value)
+    
+
     this.setData({
       indexCategory: e.detail.value,
-      gongchengleibie: this.data.arrayCategory[e.detail.value].name
+      gongchengleibie: this.data.arrayCategory[e.detail.value].id
     })
+    if (this.data.gongchengleibie == "0")
+      this.data.gongchengleibie = '';
     console.log('类别：', this.data.gongchengleibie),
       // arrayProject = 
       getproinfo(this.data.province, this.data.city, this.data.gongchengleibie, this.data.jieduan, this.data.pagesize, this.data.p, this.data.paixu, this.data.order,this) 
@@ -81,8 +75,10 @@ Page({
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       indexSchedule: e.detail.value,
-      jieduan: this.data.arraySchedule[e.detail.value].name
+      jieduan: this.data.arraySchedule[e.detail.value].id
     })
+    if (this.data.jieduan == "0")
+      this.data.jieduan = '';
     getproinfo(this.data.province, this.data.city, this.data.gongchengleibie, this.data.jieduan, this.data.pagesize, this.data.p, this.data.paixu, this.data.order, this),
     console.log('阶段：', this.data.jieduan)
 
@@ -95,10 +91,10 @@ Page({
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       multiIndex: e.detail.value,
-      paixu: this.data.multiArray[0][e.detail.value[0]],
-      orser: this.data.multiArray[1][e.detail.value[1]]
-    })
-    getproinfo(this.data.province, this.data.city, this.data.gongchengleibie, this.data.jieduan, this.data.pagesize, this.data.p, this.data.paixu, this.data.order, this),
+      paixu: this.data.multiArray1[0][e.detail.value[0]],
+      orser: this.data.multiArray1[1][e.detail.value[1]]
+    });
+    getproinfo(this.data.province, this.data.city, this.data.gongchengleibie, this.data.jieduan, this.data.pagesize, this.data.p, this.data.paixu, this.data.order, this);
     console.log('排序规则：', this.data.paixu,'排序方式：',this.data.order)
 
   },
@@ -115,8 +111,8 @@ Page({
       region: e.detail.value,
       province: this.data.region[0],
       city: this.data.region[1]
-    })
-    getproinfo(this.data.province, this.data.city, this.data.gongchengleibie, this.data.jieduan, this.data.pagesize, this.data.p, this.data.paixu, this.data.order, this),
+    });
+    getproinfo(this.data.province, this.data.city, this.data.gongchengleibie, this.data.jieduan, this.data.pagesize, this.data.p, this.data.paixu, this.data.order, this);
     console.log('province:', this.data.province, 'city:', this.data.city)
   },
 
@@ -124,6 +120,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+      
     var mythis = this;
     wx.request({
       url: app.globalData.host + 'index.php/Home/Service/list_gongchengleibie',
@@ -135,8 +132,8 @@ Page({
       success: function (res) {
         res.data.push(mythis.data.arrayCategory),
         mythis.setData({   
-        arrayCategory: res.data,
-          indexCategory: res.data.length - 1
+          arrayCategory: res.data,
+          indexCategory: res.data.length - 1,
         });
         console.log(mythis.data.arrayCategory)
       },
@@ -172,8 +169,8 @@ Page({
   projectDetail:function(even){
     
     even.currentTarget.dataset.datas.leixing = this.data.arrayCategory[even.currentTarget.dataset.datas.leixing].name,
-    even.currentTarget.dataset.datas.jieduan = this.data.arraySchedule[even.currentTarget.dataset.datas.jieduan].name,
-    wx.navigateTo({
+    even.currentTarget.dataset.datas.jieduan = this.data.arraySchedule[even.currentTarget.dataset.datas.jieduan].name;
+    wx.navigateTo({ 
       url: '/pages/project/projectDetail/projectDetail?datas=' + JSON.stringify(even.currentTarget.dataset.datas),
     });
     console.log(even.currentTarget.dataset.datas)
@@ -263,7 +260,6 @@ function getproinfo(province, city, gongchengleibie, jieduan, pagesize, p, paixu
       console.log("参数：",province, city, gongchengleibie, jieduan, pagesize,p,paixu,order),
         console.log(mythis.data.arrayProject),
         console.log(res.data.rows[0])
-     
     },
     fail: function (res) {
       console.log(res);
