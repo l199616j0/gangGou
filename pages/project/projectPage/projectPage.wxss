@@ -105,3 +105,10 @@
   color: #c5c5c5;
   padding-bottom: 10px;
 }
+.remind{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: #afadad;
+  text-align: center;
+
+}

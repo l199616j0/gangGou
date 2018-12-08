@@ -8,14 +8,14 @@ Page({
   data: {
     //类型选择
     arrayCategory: {
-      id:0,
+      id:"0",
       name: '全部类别'
     },
     indexCategory: 0,
 
     //阶段选择
     arraySchedule: {
-      id: 0,
+      id: "0",
       name: '全部阶段'
     },
     indexSchedule: 0,
@@ -38,7 +38,7 @@ Page({
     //阶段：
     jieduan: '',
     //每页显示的行数：
-    pagesize: 5,
+    pagesize: 7,
     //页码（从1开始）：
     p: 1,
     //排序方式：
@@ -46,17 +46,64 @@ Page({
     //升序或降序：
     order: 'desc',
     detail: [],
-  arrayProject:[
-  ],
+    state: 1,
+    arrayProject:[],
 
+    allProject:[],
   },
-  
+
+
+  /**
+ * 生命周期函数--监听页面加载
+ */
+  onLoad: function (options) {
+    var mythis = this;
+    wx.request({
+      url: app.globalData.host + 'index.php/Home/Service/list_gongchengleibie',
+      method: 'post',
+      data: {},
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'  //这里注意POST请求content-type是小写，大写会报错  
+      },
+      success: function (res) {
+        res.data.push(mythis.data.arrayCategory),
+          mythis.setData({
+            arrayCategory: res.data,
+            indexCategory: res.data.length - 1,
+          });
+        console.log(mythis.data.arrayCategory)
+      },
+      fail: function (res) {
+        console.log(res);
+      }
+    });
+    wx.request({
+      url: app.globalData.host + 'index.php/Home/Service/list_jieduan',
+      method: 'post',
+      data: {},
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      success: function (res) {
+        res.data.push(mythis.data.arraySchedule),
+          mythis.setData({
+            arraySchedule: res.data,
+            indexSchedule: res.data.length - 1,
+          });
+        console.log(mythis.data.arraySchedule);
+      },
+      fail: function (res) {
+        console.log(res);
+      }
+    });
+    getproinfo(this.data.province, this.data.city, this.data.gongchengleibie, this.data.jieduan, this.data.pagesize, this.data.p, this.data.paixu, this.data.order, mythis)
+  },
+
+
   //改变类型选择器
   bindPickerChangeCategory: function (e) {
     var mythis = this;
     console.log('picker发送选择改变，携带值为', e.detail.value)
-    
-
     this.setData({
       indexCategory: e.detail.value,
       gongchengleibie: this.data.arrayCategory[e.detail.value].id
@@ -64,7 +111,6 @@ Page({
     if (this.data.gongchengleibie == "0")
       this.data.gongchengleibie = '';
     console.log('类别：', this.data.gongchengleibie),
-      // arrayProject = 
       getproinfo(this.data.province, this.data.city, this.data.gongchengleibie, this.data.jieduan, this.data.pagesize, this.data.p, this.data.paixu, this.data.order,this) 
     
   },
@@ -116,58 +162,10 @@ Page({
     console.log('province:', this.data.province, 'city:', this.data.city)
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-      
-    var mythis = this;
-    wx.request({
-      url: app.globalData.host + 'index.php/Home/Service/list_gongchengleibie',
-      method: 'post',
-      data: {},
-      header: {
-        'content-type': 'application/x-www-form-urlencoded'  //这里注意POST请求content-type是小写，大写会报错  
-      },
-      success: function (res) {
-        res.data.push(mythis.data.arrayCategory),
-        mythis.setData({   
-          arrayCategory: res.data,
-          indexCategory: res.data.length - 1,
-        });
-        console.log(mythis.data.arrayCategory)
-      },
-      fail: function (res) {
-        console.log(res);
-      }
-    });
-    wx.request({
-      url: app.globalData.host + 'index.php/Home/Service/list_jieduan',
-      method: 'post',
-      data: {},
-      header: {
-        'content-type': 'application/x-www-form-urlencoded'    
-      },
-      success: function (res) {
-        res.data.push(mythis.data.arraySchedule),
-        mythis.setData({   
-          arraySchedule: res.data,
-          indexSchedule: res.data.length - 1,
-        });
-        console.log(mythis.data.arraySchedule);
-      },
-      fail: function (res) {
-        console.log(res);
-      }
-    });
-    getproinfo(this.data.province, this.data.city, this.data.gongchengleibie, this.data.jieduan, this.data.pagesize, this.data.p, this.data.paixu, this.data.order,mythis)
-  },
-
     /**
    * 点击项目列表查看详情
    */
   projectDetail:function(even){
-    
     even.currentTarget.dataset.datas.leixing = this.data.arrayCategory[even.currentTarget.dataset.datas.leixing].name,
     even.currentTarget.dataset.datas.jieduan = this.data.arraySchedule[even.currentTarget.dataset.datas.jieduan].name;
     wx.navigateTo({ 
@@ -176,6 +174,19 @@ Page({
     console.log(even.currentTarget.dataset.datas)
   },
   
+
+/**
+   * 点击加载更多
+   */
+loadMore:function(){
+  var mythis = this;
+  wx.showLoading({
+    title: '玩命加载中...',
+  });
+  mythis.data.p = mythis.data.p + 1;
+  getproinfo(this.data.province, this.data.city, this.data.gongchengleibie, this.data.jieduan, this.data.pagesize, this.data.p, this.data.paixu, this.data.order, mythis);
+  wx.hideLoading();
+},
   /**
    * 生命周期函数--监听页面初次渲染完成
    */ 
@@ -215,7 +226,15 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
+    var mythis = this;
+    wx.showLoading({
+      title: '玩命加载中...',
+    });
+    mythis.data.p = mythis.data.p + 1;
+    getproinfo(this.data.province, this.data.city, this.data.gongchengleibie, this.data.jieduan, this.data.pagesize, this.data.p, this.data.paixu, this.data.order, mythis);
+    wx.hideLoading();
 
+    
   },
 
   /**
@@ -235,7 +254,7 @@ function getproinfo(province, city, gongchengleibie, jieduan, pagesize, p, paixu
     gongchengleibie = '';
   if (jieduan == "全部阶段")
     jieduan = '';
-
+  console.log("参数：", province, city, gongchengleibie, jieduan, pagesize, p, paixu, order),
   wx.request({
     url: app.globalData.host + 'index.php/Home/Service/getproinfo',
     method: 'post',
@@ -245,21 +264,33 @@ function getproinfo(province, city, gongchengleibie, jieduan, pagesize, p, paixu
       gongchengleibie: gongchengleibie,
       jieduan: jieduan,
       pagesize: pagesize,
-      p:p,
+      p:p, 
       paixu: paixu,
       order:order
     },
     header: {
       'content-type': 'application/x-www-form-urlencoded' 
     },
+
     success: function (res) {
-      mythis.setData ({
-        arrayProject: res.data.rows
-      });
-      mythis.data.arrayProject.push(res.data.rows[0]),
-      console.log("参数：",province, city, gongchengleibie, jieduan, pagesize,p,paixu,order),
-        console.log(mythis.data.arrayProject),
-        console.log(res.data.rows[0])
+      if (res.data.rows.length<1)
+        mythis.setData({
+          state: 0
+        });
+        else{
+          var state1 = 1;
+          if (res.data.rows.length < mythis.data.pagesize)
+            var state1 = 0;
+
+          for (var i = 0; i < res.data.rows.length; i++) {
+            mythis.data.allProject.push(res.data.rows[i]);
+          }
+          mythis.setData({
+            arrayProject: mythis.data.allProject,
+            state: state1
+          });
+        }
+      console.log(mythis.data.arrayProject)
     },
     fail: function (res) {
       console.log(res);

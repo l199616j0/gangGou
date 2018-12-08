@@ -42,13 +42,14 @@
       </picker>
     </view>
   </view>
-<view class='projectlist' >
-  <view class='project'  wx:for="{{arrayProject}}"  wx:for-item="itemProjec" wx:key="id" data-datas="{{itemProjec}}" bindtap='projectDetail'>
+  <view class='projectlist' >
+    <view class='project'  wx:for="{{arrayProject}}"  wx:for-item="itemProjec" wx:key="id" data-datas="{{itemProjec}}" bindtap='projectDetail'>
       <view class='projectText'> {{itemProjec.gongchengmingcheng}} </view>
       <view class='projectleibie label'> {{arrayCategory[itemProjec.leixing].name}} </view>
       <view class='projectjiesuan label'> {{arraySchedule[itemProjec.jieduan].name}} </view>
       <view class='projectTime'> {{itemProjec.faburiqi}} </view>
+    </view>
+    <view class='remind' wx:if="{{state==0}}"><view>没有更多了</view></view>
   </view>
-</view>
 </view>
 

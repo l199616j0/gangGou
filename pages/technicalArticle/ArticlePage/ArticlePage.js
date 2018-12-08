@@ -7,6 +7,7 @@ Page({
    */
   data: {
     Articlelist: {},
+    allArticle:[],
     ArticleDetail: {},
     Allleibie: {
       id: 0,
@@ -15,9 +16,10 @@ Page({
     indexleibie: 0,
     nowleibie: '',
     //每页显示的行数：
-    pagesize:3,
+    pagesize:4    ,
     //页码（从1开始）：
     p: 1,
+
     //排序方式：
     paixu: 'readcount',
     //升序或降序：
@@ -26,6 +28,8 @@ Page({
     multiArray: [['热度','日期'], ['降序', '升序']],
     multiArray1: [['readcount', 'adddate'], ['desc', 'asc']],//二维数组，长度是多少是几列
     multiIndex: [0, 0],
+
+    state:1
   },
   /**
    * 生命周期函数--监听页面加载
@@ -42,7 +46,8 @@ Page({
       success: function (res) {
         res.data.push(mythis.data.Allleibie),
           mythis.setData({
-          Allleibie: res.data
+          Allleibie: res.data,
+          indexleibie: res.data.length - 1,
           });
         console.log(res.data)
       },
@@ -97,6 +102,18 @@ Page({
 
   },
 
+ /**
+   * 点击加载更多
+   */
+  loadMore:function(){
+    var mythis = this;
+    wx.showLoading({
+      title: '玩命加载中...',
+    });
+    mythis.data.p = mythis.data.p + 1;
+    getarticles(mythis.data.nowleibie, mythis.data.pagesize, mythis.data.p, mythis.data.paixu, mythis.data.order, mythis),
+    wx.hideLoading();
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -152,6 +169,7 @@ Page({
  * 获取项目列表
  */
 function getarticles(nowleibie, pagesize, p, paixu, order, mythis) {
+  console.log("参数： nowleibie:", nowleibie," pagesize:", pagesize," p:",p," paixu:",paixu," order:",order);
   wx.request({
     url: app.globalData.host + 'index.php/Home/Service/getarticles',
     method: 'post',
@@ -166,10 +184,11 @@ function getarticles(nowleibie, pagesize, p, paixu, order, mythis) {
       'content-type': 'application/x-www-form-urlencoded'
     },
     success: function (res) {
+
       mythis.setData({
         Articlelist: res.data
       });
-      console.log(mythis.data.Articlelist)
+      console.log("文章列表：",mythis.data.Articlelist)
     },
     fail: function (res) {
       console.log(res);
@@ -190,7 +209,7 @@ function getArticleDetail(id) {
         mythis.setData({
         ArticleDetail: res.data
         });
-      console.log(mythis.data)
+      console.log(mythis.data.ArticleDetail)
     },
     fail: function (res) {
       console.log(res);
