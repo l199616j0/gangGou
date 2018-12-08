@@ -5,7 +5,7 @@ Page({
         cate_id: 1,
         cate_name: "东北",
         ishaveChild: true,
-        
+
         children:
           [
             {
@@ -125,8 +125,8 @@ Page({
             child_id: 3,
             name: '湖南省',
             image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1542100697972&di=5f003799925a6342e54e09f29e13a301&imgtype=0&src=http%3A%2F%2Fpigimg.zhongso.com%2Fspace%2Fgallery%2F2012%2F12%2F14%2F15%2Fb2b_20121114035641362858_480.jpg"
-          }, 
-        ]        
+          },
+        ]
       },
       {
         cate_id: 5,
@@ -228,12 +228,12 @@ Page({
         ]
       },
     ],
-    
+
     curNav: 1,
     curIndex: 0
   },
 
-  
+
   test:function()
   {
     wx.navigateTo({
@@ -241,12 +241,12 @@ Page({
     })
   },
 
-  //事件处理函数  
+  //事件处理函数
   switchRightTab: function (e) {
-    // 获取item项的id，和数组的下标值  
+    // 获取item项的id，和数组的下标值
     let id = e.target.dataset.id,
       index = parseInt(e.target.dataset.index);
-    // 把点击到的某一项，设为当前index  
+    // 把点击到的某一项，设为当前index
     this.setData({
       curNav: id,
       curIndex: index

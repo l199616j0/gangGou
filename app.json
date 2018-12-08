@@ -8,6 +8,7 @@
     "pages/friend/business/business",
     "pages/friend/chat/chat",
     "pages/friend/region/region",
+    "pages/friend/recommend/recommend",
     "pages/user/user",
     "pages/helpinfo/helpinfo",
     "pages/Personal/user/user",

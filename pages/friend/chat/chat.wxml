@@ -1,4 +1,5 @@
-<view class="news" bindtap='outbtn'>
+
+ <view class="news" bindtap='outbtn'>
 
 <view class="chat-notice" wx:if="{{userInfo}}">系统消息: 欢迎 {{ userInfo.nickName }} 加入群聊</view>
 
@@ -12,9 +13,9 @@
 
             <!-- 历史消息 -->
 
-        <!-- <view class="chat-news">
+        <view class="chat-news">
             <view style="text-align: left;padding-left: 20rpx;">
-                <image class='new_img' src="{{item.avatarUrl? item.avatarUrl : '/images/arrow.png'}}"></image>
+                <image class='new_img' src="{{item.avatarUrl? item.avatarUrl:'images/avator.png'}}"></image>
                 <text class="name">{{ item.nickName }}{{item.date}}</text>
             </view>
             <view class='you_left'>
@@ -25,35 +26,31 @@
                     <image class="selectImg" src="{{item.images}}"></image>
                 </block>
             </view>
-        </view> -->
+        </view>
 
         <view>{{item.date}}</view>
 
         <!--自己的消息 -->
 
-        <view class="chat-news" wx:if="{{item.nickName == userInfo.nickName}}">
-
+        <view class="chat-news" wx:for="{{item1}}" wx:for-item="item2" >
+        <view class="chat-news">
             <view style="text-align: right;padding-right: 20rpx;">
 
-                <!-- <text class="name">{{ item.nickName }}</text> -->
-                <text class="name">nihao</text>
-
-
-                <!-- <image class='new_img' src="{{userInfo.avatarUrl}}"></image> -->
-                <image class='new_img' src="/images/b1.jpg"></image>
+                <text class="name">{{item2.nickName}}</text>
+                <image class='new_img' src="{{item2.images}}"></image>
 
 
             </view>
 
             <view class='my_right'>
 
-                <block wx:if="{{item.type=='text'}}">
+                <!-- <block wx:if="{{item.type=='text'}}"> -->
 
-                    <view class='new_txt'>{{item.content}}</view>
+                    <view class='new_txt'>{{item2.content}}</view>
                     <!-- <view class='new_txt'>hello</view> -->
 
 
-                </block>
+                <!-- </block> -->
 
                 <block wx:if="{{item.type=='image'}}">
 
@@ -67,26 +64,27 @@
 
         <!-- 别人的消息 -->
 
-        <view class="chat-news" wx:else>
+        <view class="chat-news" >
 
             <view style="text-align: left;padding-left: 20rpx;">
 
-                <image class='new_img' src="{{item.avatarUrl? item.avatarUrl:'images/avator.png'}}"></image>
+                <!-- <image class='new_img' src="{{item.avatarUrl? item.avatarUrl:'images/avator.png'}}"></image> -->
 
-                <!-- <text class="name">{{ item.nickName }}</text> -->
-                <text class="name">hello</text>
+                <text class="name">{{ item.nickName }}</text>
+                <image class='new_img' src="/images/b1.jpg"></image>
+                <text class="name">思思</text>
 
 
             </view>
 
             <view class='you_left'>
 
-                <block wx:if="{{item.type=='text'}}">
+                <!-- <block wx:if="{{item.type=='text'}}"> -->
 
                     <!-- <view class='new_txt'>{{item.content}}</view> -->
-                    <text class="name">hello</text>
+                    <text class="new_txt">hello</text>
 
-                </block>
+                <!-- </block> -->
 
                 <block wx:if="{{item.type=='image'}}">
 
@@ -97,8 +95,8 @@
             </view>
 
         </view>
-
-        </block>
+      </view>
+    </block>
 
     </scroll-view>
 
@@ -110,7 +108,7 @@
 
 <!-- 聊天输入 -->
 
-<view class="message">
+ <view class="message">
 
     <form bindreset="cleanInput" class="sendMessage">
 
@@ -120,7 +118,7 @@
 
         <input type="text" placeholder="请输入聊天内容.." value="{{massage}}" bindinput='bindChange'></input>
 
-        <button type="primary" bindtap='send' formType="reset" size="small" button-hover="blue">发送</button>
+        <button type="primary" bindtap='send' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo" formType="reset" size="small" button-hover="blue">发送</button>
 
     </form>
 

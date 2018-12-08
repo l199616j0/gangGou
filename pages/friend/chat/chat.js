@@ -28,17 +28,24 @@ Page({
     previewImgList: [3],
     pics: [],
     count: [1, 2, 3, 4, 5, 6, 7, 8, 9],
-    isShow: true
-
+    isShow: true,
+    item1:[]
   },
+  onLoad :function () {
+//     let that = this;
+//     if (app.globalData.userInfo) {
+//     this.setData({
+//       userInfo: app.globalData.userInfos
+//   })
+// }
+},
 
   //监听input值的改变
 
   bindChange(res) {
-
+    var _this= this;
     this.setData({
-
-      message: res.detail.value
+      message: res.detail.value,
 
     })
 
@@ -133,6 +140,33 @@ Page({
         // complete
       }
     })
+  },
+
+  onGotUserInfo:function(e){
+   
+    this.setData({
+      userInfo: e.detail.userInfo
+    });
+    //   this.setData({
+    //     'item1.nickName': e.detail.userInfo.nickName,
+    //     'item1.images': this.data.userInfo.avatarUrl,
+    //     'item1.content': this.data.message
+    // });
+    this.setData({
+      'item1.nickName': 'sixian',
+      'item1.images': '/ images/b1.jpg',
+      'item1.content': "nihao"
+    });
+    console.log(this.data.item1);
+  },
+
+  send: function (e) {
+    console.log(e.detail.userInfo);
+    // this.setData({
+    //   'item1.nickName': e.detail.userInfo.nickName,
+    //   'item1.images': e.detail.userInfo.avatarUrl,
+    //   'item1.content': this.data.message
+    // });
   },
 
   //聊天消息始终显示最底端

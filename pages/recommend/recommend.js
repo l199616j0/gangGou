@@ -1,4 +1,4 @@
-// pages/business/business.js
+// pages/recommend/recommend.js
 Page({
 
   /**
@@ -7,13 +7,13 @@ Page({
   data: {
 
   },
-    onload: function () {
-      this.setData({
-        text1: "商圈"
-      });
-    },
 
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
 
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -62,27 +62,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-  region: function (event) {
-    wx.navigateTo({
-      url: '/pages/friend/region/region',
-    });
-  },
-  industry: function (event) {
-    // wx.navigateTo({
-    //   url: '/pages/industry/industry',
-    // });
-  },
-  recommend: function (event) {
-    wx.navigateTo({
-      url: '/pages/friend/recommend/recommend',
-    });
-  },
-  information: function (event) {
-    // wx.navigateTo({
-    //   url: '/pages/information/information',
-    // });
-  },
-
-
+  }
 })
